@@ -1,0 +1,96 @@
+﻿@using System.Globalization
+@model IEnumerable<StaffTracking.Models.UserDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <div class="col-md-12">
+        <h1>Users</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MiddleName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastLogIn)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastLogOut)
+                    </th>
+                    <th>
+                        <a asp-action="AddOrEdit" class="btn btn-sm btn-success">
+                            <i class="fa-solid fa-plus"></i> New
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MiddleName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @{
+                                var lastLogIn = item.LastLogOut.HasValue
+                                    ? item.LastLogOut.Value.ToString(CultureInfo.InvariantCulture)
+                                    : "-";
+                            }
+                            @Html.DisplayFor(modelItem => lastLogIn)
+                        </td>
+                        <td>
+                            @{
+                                var lastLogOut = item.LastLogOut.HasValue
+                                    ? item.LastLogOut.Value.ToString(CultureInfo.InvariantCulture)
+                                    : "-";
+                            }
+                            @Html.DisplayFor(modelItem => lastLogOut)
+                        </td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@item.Id">
+                                <div class="btn-group btn-group-sm">
+                                    <a asp-action="AddOrEdit" asp-route-id="@item.Id" class="btn btn-warning">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure to delete this user?')">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
