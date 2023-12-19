@@ -25,7 +25,7 @@ namespace StaffTracking.Controllers
             _emailStore = GetEmailStore();
         }
 
-        // GET: Transaction
+        // GET: User
         public async Task<IActionResult> Index()
         {
             var users = await _context.Users.Include(x => x.Employee).ThenInclude(x => x.EmployeeProfile)
@@ -46,7 +46,7 @@ namespace StaffTracking.Controllers
         }
 
 
-        // GET: Transaction/AddOrEdit
+        // GET: User/AddOrEdit
         public async Task<IActionResult> AddOrEdit(string? id)
         {
             if (string.IsNullOrEmpty(id))
@@ -66,7 +66,7 @@ namespace StaffTracking.Controllers
             });
         }
 
-        // POST: Transaction/AddOrEdit
+        // POST: User/AddOrEdit
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -121,7 +121,7 @@ namespace StaffTracking.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // POST: Transaction/Delete/5
+        // POST: User/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
