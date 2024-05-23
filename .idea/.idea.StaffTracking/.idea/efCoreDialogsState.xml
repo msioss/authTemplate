@@ -3,10 +3,10 @@
   <component name="EfCoreDialogsState">
     <option name="keyValueStorage">
       <map>
-        <entry key="Common:a594427c-1a4a-47d3-bac7-c52ef491cf9b:dbContext" value="Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserContext`2" />
+        <entry key="Common:a594427c-1a4a-47d3-bac7-c52ef491cf9b:dbContext" value="StaffTracking.Data.DbContext.ApplicationDbContext" />
         <entry key="Common:buildConfiguration" value="Debug" />
         <entry key="Common:noBuild" value="false" />
-        <entry key="Common:outputFolder" value="..\..\Asp.Net-Core-MVC-Identity---Complete-User-Authentication-System-main\AuthSystem\Areas\Identity\Data\Migrations" />
+        <entry key="Common:outputFolder" value="Data\Migrations" />
       </map>
     </option>
   </component>

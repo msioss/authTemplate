@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marty\\OneDrive\\Desktop\\Asp.Net-Core-6.0-MVC-CRUD-Operations-with-EF-Core-main\\StaffTracking\\StaffTracking.csproj": {}
+    "C:\\Users\\marty\\OneDrive\\Desktop\\staff_tracking\\StaffTracking\\StaffTracking.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marty\\OneDrive\\Desktop\\Asp.Net-Core-6.0-MVC-CRUD-Operations-with-EF-Core-main\\StaffTracking\\StaffTracking.csproj": {
+    "C:\\Users\\marty\\OneDrive\\Desktop\\staff_tracking\\StaffTracking\\StaffTracking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marty\\OneDrive\\Desktop\\Asp.Net-Core-6.0-MVC-CRUD-Operations-with-EF-Core-main\\StaffTracking\\StaffTracking.csproj",
+        "projectUniqueName": "C:\\Users\\marty\\OneDrive\\Desktop\\staff_tracking\\StaffTracking\\StaffTracking.csproj",
         "projectName": "StaffTracking",
-        "projectPath": "C:\\Users\\marty\\OneDrive\\Desktop\\Asp.Net-Core-6.0-MVC-CRUD-Operations-with-EF-Core-main\\StaffTracking\\StaffTracking.csproj",
+        "projectPath": "C:\\Users\\marty\\OneDrive\\Desktop\\staff_tracking\\StaffTracking\\StaffTracking.csproj",
         "packagesPath": "C:\\Users\\marty\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marty\\OneDrive\\Desktop\\Asp.Net-Core-6.0-MVC-CRUD-Operations-with-EF-Core-main\\StaffTracking\\obj\\",
+        "outputPath": "C:\\Users\\marty\\OneDrive\\Desktop\\staff_tracking\\StaffTracking\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -28,7 +28,7 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.novavi.org/nuget": {}
+          "https://nuget.pkg.jetbrains.space/novavi/p/novavi/novavi/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -79,6 +79,14 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -100,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205\\RuntimeIdentifierGraph.json"
         }
       }
     }

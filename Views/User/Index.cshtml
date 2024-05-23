@@ -60,8 +60,8 @@
                         </td>
                         <td>
                             @{
-                                var lastLogIn = item.LastLogOut.HasValue
-                                    ? item.LastLogOut.Value.ToString(CultureInfo.InvariantCulture)
+                                var lastLogIn = item.LastLogIn.HasValue
+                                    ? item.LastLogIn.Value.ToString(CultureInfo.InvariantCulture)
                                     : "-";
                             }
                             @Html.DisplayFor(modelItem => lastLogIn)

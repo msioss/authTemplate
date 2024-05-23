@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using StaffTracking.Data.DbContext;
@@ -11,9 +12,10 @@ using StaffTracking.Data.DbContext;
 namespace StaffTracking.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240326185521_AddEmployeeCard")]
+    partial class AddEmployeeCard
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,41 +192,6 @@ namespace StaffTracking.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("StaffTracking.Data.Entities.AccessCard", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("DepartmentId")
-                        .HasColumnType("integer")
-                        .HasColumnName("department_id");
-
-                    b.Property<string>("EmployeeId")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("employee_id");
-
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("value");
-
-                    b.HasKey("Id")
-                        .HasName("pk_access_cards");
-
-                    b.HasIndex("DepartmentId")
-                        .HasDatabaseName("ix_access_cards_department_id");
-
-                    b.HasIndex("EmployeeId")
-                        .HasDatabaseName("ix_access_cards_employee_id");
-
-                    b.ToTable("access_cards", (string)null);
-                });
-
             modelBuilder.Entity("StaffTracking.Data.Entities.AccessLog", b =>
                 {
                     b.Property<int>("Id")
@@ -287,6 +254,11 @@ namespace StaffTracking.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text")
                         .HasColumnName("id");
+
+                    b.Property<string>("AccessCard")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("access_card");
 
                     b.Property<string>("Inn")
                         .IsRequired()
@@ -643,27 +615,6 @@ namespace StaffTracking.Data.Migrations
                         .HasConstraintName("fk_asp_net_user_tokens_asp_net_users_user_id");
                 });
 
-            modelBuilder.Entity("StaffTracking.Data.Entities.AccessCard", b =>
-                {
-                    b.HasOne("StaffTracking.Data.Entities.Department", "Department")
-                        .WithMany("AccessCards")
-                        .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_access_cards_departments_department_id");
-
-                    b.HasOne("StaffTracking.Data.Entities.Employee", "Employee")
-                        .WithMany("AccessCards")
-                        .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_access_cards_employees_employee_id");
-
-                    b.Navigation("Department");
-
-                    b.Navigation("Employee");
-                });
-
             modelBuilder.Entity("StaffTracking.Data.Entities.AccessLog", b =>
                 {
                     b.HasOne("StaffTracking.Data.Entities.User", "User")
@@ -760,15 +711,11 @@ namespace StaffTracking.Data.Migrations
 
             modelBuilder.Entity("StaffTracking.Data.Entities.Department", b =>
                 {
-                    b.Navigation("AccessCards");
-
                     b.Navigation("Posts");
                 });
 
             modelBuilder.Entity("StaffTracking.Data.Entities.Employee", b =>
                 {
-                    b.Navigation("AccessCards");
-
                     b.Navigation("EmployeeProfile")
                         .IsRequired();
 

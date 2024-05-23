@@ -20,7 +20,7 @@ public class ApplicationDbContext : IdentityDbContext<User>
     public DbSet<Post> Posts { get; set; }
     public DbSet<Vacation> Vacations { get; set; }
     public DbSet<WorkHour> WorkHours { get; set; }
-
+    public DbSet<AccessCard> AccessCards { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -30,6 +30,7 @@ public class ApplicationDbContext : IdentityDbContext<User>
         builder.ApplyConfiguration(new EmployeeConfiguration());
         builder.ApplyConfiguration(new PostConfiguration());
         builder.ApplyConfiguration(new UserConfiguration());
+        builder.ApplyConfiguration(new AccessCardConfiguration());
     }
     
     protected override void OnConfiguring(DbContextOptionsBuilder builder)

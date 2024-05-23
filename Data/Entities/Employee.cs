@@ -13,6 +13,7 @@ public class Employee
 
     public User User { get; set; }
     public EmployeeProfile EmployeeProfile { get; set; }
+    public List<AccessCard> AccessCards { get; set; }
     public List<Vacation> Vacations { get; set; }
     public List<WorkHour> WorkHours { get; set; }
     public List<MilitaryRegistration> MilitaryRegistrations { get; set; }
